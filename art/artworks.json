@@ -1,0 +1,30 @@
+[
+  {
+    "img": "art/Rainbow.jpg",
+    "title": "Rainbow",
+    "medium": "Oil on Canvas",
+    "dimensions": "24x36 in",
+    "price": "Contact for Price"
+  },
+  {
+    "img": "art/evening-reflection.jpg",
+    "title": "Evening Reflection",
+    "medium": "Oil on Canvas",
+    "dimensions": "30x40 in",
+    "price": "Contact for Price"
+  },
+  {
+    "img": "art/shared-horizons.jpg",
+    "title": "Shared Horizons",
+    "medium": "Oil on Canvas",
+    "dimensions": "20x30 in",
+    "price": "Contact for Price"
+  },
+  {
+    "img": "art/quiet-gathering.jpg",
+    "title": "Quiet Gathering",
+    "medium": "Oil on Canvas",
+    "dimensions": "24x30 in",
+    "price": "Contact for Price"
+  }
+]
