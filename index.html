@@ -170,7 +170,61 @@
 <footer>
   &copy; 2025 Ivon Johnson
 </footer>
+<script>
+  const galleryGrid = document.getElementById("galleryGrid");
+  const artworks = {};
+
+  // Load artworks from JSON
+  fetch('art/artworks.json')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach((art, index) => {
+        const artId = "art" + (index + 1);
+        artworks[artId] = art;
+
+        // Create gallery card
+        const div = document.createElement("div");
+        div.className = "cursor-pointer overflow-hidden rounded shadow-lg group";
+        div.setAttribute("onclick", `openModal('${artId}')`);
+        div.innerHTML = `
+          <img src="${art.img}" alt="${art.title}" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
+        `;
+        galleryGrid.appendChild(div);
+      });
+    })
+    .catch(err => console.error("Error loading artworks.json:", err));
+
+  // Modal functionality
+  const artModal = document.getElementById("artModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalMedium = document.getElementById("modalMedium");
+  const modalDimensions = document.getElementById("modalDimensions");
+  const modalPrice = document.getElementById("modalPrice");
+
+  function openModal(artId) {
+    const art = artworks[artId];
+    modalImg.src = art.img;
+    modalTitle.textContent = art.title;
+    modalMedium.textContent = art.medium;
+    modalDimensions.textContent = art.dimensions;
+    modalPrice.textContent = art.price;
+    artModal.classList.remove("hidden");
+    artModal.classList.add("flex");
+  }
+
+  function closeModal() {
+    artModal.classList.add("hidden");
+    artModal.classList.remove("flex");
+  }
+
+  // Close modal when clicking outside content
+  artModal.addEventListener("click", (e) => {
+    if (e.target === artModal) closeModal();
+  });
+</script>
 
 </body>
 </html>
+
 
