@@ -28,7 +28,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Blurred Background -->
+  <!-- Hero Section -->
   <section id="hero" class="relative flex flex-col justify-center items-center h-screen text-center px-4 pt-20">
     <div class="absolute inset-0">
       <img src="art/morning-light.jpg" alt="Hero Artwork" class="w-full h-full object-cover filter blur-sm brightness-50">
@@ -46,12 +46,36 @@
   <!-- Gallery Section -->
   <section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
     <h2 class="text-3xl font-semibold mb-8 text-center">Gallery</h2>
-    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-8"></div>
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <!-- Sample images with data attributes -->
+      <img src="art/morning-light.jpg" alt="Morning Light"
+           data-title="Morning Light"
+           data-medium="Oil on Canvas"
+           data-dimensions="24x36 in"
+           data-price="$1200"
+           class="w-full h-64 object-cover rounded shadow cursor-pointer">
+
+      <img src="art/sunset.jpg" alt="Sunset"
+           data-title="Sunset"
+           data-medium="Oil on Canvas"
+           data-dimensions="30x40 in"
+           data-price="$1500"
+           class="w-full h-64 object-cover rounded shadow cursor-pointer">
+
+      <img src="art/forest.jpg" alt="Forest"
+           data-title="Forest"
+           data-medium="Oil on Canvas"
+           data-dimensions="20x30 in"
+           data-price="$900"
+           class="w-full h-64 object-cover rounded shadow cursor-pointer">
+    </div>
   </section>
 
-  <!-- Artwork Modal -->
-  <div id="artModal" class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4">
-    <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative">
+  <!-- Artwork Modal with animation -->
+  <div id="artModal" 
+       class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4 
+              transition-opacity duration-300 ease-out opacity-0">
+    <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative transform transition-transform duration-300 ease-out scale-95">
       <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
       <img id="modalImg" src="" alt="" class="w-full h-96 object-cover rounded mb-4">
       <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
@@ -76,5 +100,61 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact"
+  <section id="contact" class="py-16 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-6">Contact</h2>
+    <p class="mb-4">Interested in a piece or want to learn more? Reach out via email:</p>
+    <a href="mailto:youremail@example.com" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">Email Me</a>
+  </section>
 
+  <!-- JavaScript for Gallery Modal -->
+  <script>
+    const galleryGrid = document.getElementById("galleryGrid");
+    const artModal = document.getElementById("artModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalMedium = document.getElementById("modalMedium");
+    const modalDimensions = document.getElementById("modalDimensions");
+    const modalPrice = document.getElementById("modalPrice");
+
+    // Open modal with animation
+    galleryGrid.addEventListener("click", (e) => {
+      if (e.target.tagName === "IMG") {
+        modalImg.src = e.target.src;
+        modalTitle.textContent = e.target.dataset.title;
+        modalMedium.textContent = e.target.dataset.medium;
+        modalDimensions.textContent = e.target.dataset.dimensions;
+        modalPrice.textContent = e.target.dataset.price;
+
+        artModal.classList.remove("hidden", "opacity-0");
+        artModal.classList.add("flex", "opacity-100");
+
+        const modalContent = artModal.querySelector("div");
+        modalContent.classList.remove("scale-95");
+        modalContent.classList.add("scale-100");
+      }
+    });
+
+    // Close modal with animation
+    function closeModal() {
+      artModal.classList.remove("opacity-100");
+      artModal.classList.add("opacity-0");
+
+      const modalContent = artModal.querySelector("div");
+      modalContent.classList.remove("scale-100");
+      modalContent.classList.add("scale-95");
+
+      setTimeout(() => {
+        artModal.classList.add("hidden");
+        artModal.classList.remove("flex");
+      }, 300); // matches duration-300
+    }
+
+    // Close modal when clicking outside content
+    artModal.addEventListener("click", (e) => {
+      if (e.target === artModal) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
