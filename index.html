@@ -9,7 +9,22 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    html { scroll-behavior: smooth; }
+  .masonry {
+      column-count: 2;
+      column-gap: 1rem;
+    }
+    .masonry img {
+      width: 100%;
+      display: block;
+      margin-bottom: 1rem;
+      break-inside: avoid;
+    }
+    @media (min-width: 768px) {
+      .masonry { column-count: 3; }
+    }
+    @media (min-width: 1024px) {
+      .masonry { column-count: 4; }
+    }
   </style>
 </head>
 
@@ -42,7 +57,7 @@
   </section>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
+  <section id="gallery" class="masonry">
     <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       <!-- Images will keep natural proportions -->
@@ -243,6 +258,7 @@
 
 </body>
 </html>
+
 
 
 
