@@ -37,18 +37,24 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="relative flex flex-col justify-center items-center h-screen text-center px-4 pt-20">
-    
-    <div class="relative z-10 max-w-2xl">
-      <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white">Ivon Johnson</h1>
-      <p class="text-xl md:text-2xl mb-6 italic text-gray-200">Art inspired by place, connection, and shared experience.</p>
-      <p class="mb-6 text-gray-200">
-        Ivon Johnson creates oil paintings that explore the relationships between place, memory, and belonging. Through light, color, and emotion, his work captures the quiet beauty of moments and spaces that bring people together.
-      </p>
-      <a href="#gallery" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">View Gallery</a>
-    </div>
-  </section>
+ <!-- Hero Section -->
+<section id="hero" class="relative h-screen flex items-end justify-center text-center px-4 pt-20 bg-cover bg-center" 
+         style="background-image: url('art/hero-landing.jpg');">
+  
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <!-- Text Content anchored at bottom -->
+  <div class="relative z-10 max-w-2xl pb-12">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 text-white"></h1>
+    <p class="text-xl md:text-6xl mb-6 italic text-gray-200">Art inspired by place, connection, and shared experience.</p>
+    <p class="mb-6 text-gray-200">
+      Ivon Johnson creates oil paintings that explore the relationships between place, memory, and belonging. Through light, color, and emotion, his work captures the quiet beauty of moments and spaces that bring people together.
+    </p>
+    <a href="#gallery" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">View Gallery</a>
+  </div>
+</section>
+
 
   <!-- Gallery Section -->
   <section id="gallery" class="py-16 px4 max-w-6xl mx-auto">
@@ -259,6 +265,7 @@
 
 </body>
 </html>
+
 
 
 
