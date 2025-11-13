@@ -67,58 +67,68 @@
 
 
   <!-- Gallery Section -->
-  <section id="gallery" class="py-16 px4 max-w-6xl mx-auto">
-    <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
-    <div id="galleryGrid" class="masonry">
-      <!-- Images will keep natural proportions -->
-      <img src="art/Rainbow Bar.jpg" alt="Rainbow Bar"
-           data-title="Rainbow Bar"
-           data-medium="Oil on Canvas"
-           data-dimensions="24x36 in"
-           data-price="$1200"
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+<!-- Gallery Section -->
+<section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
+  <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
+  <div id="galleryGrid" class="masonry">
+    <!-- Images with dataset attributes -->
+    <img src="art/Rainbow-Bar.jpg" alt="Rainbow Bar"
+         data-title="Rainbow Bar"
+         data-medium="Oil on Canvas"
+         data-dimensions="24x36 in"
+         data-price="$1200"
+         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
 
-      <img src="art/Three Rivers.jpg" alt="Three Rivers"
-           data-title="Three Rivers"
-           data-medium="Oil on Canvas"
-           data-dimensions="24x48 in"
-           data-price="$1500"
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    <img src="art/Three-Rivers.jpg" alt="Three Rivers"
+         data-title="Three Rivers"
+         data-medium="Oil on Canvas"
+         data-dimensions="24x48 in"
+         data-price="$1500"
+         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
 
-      <img src="art/Historic Murray.jpg" alt="Historic Murray"
-           data-title="Historic Murray"
-           data-medium="Oil on Canvas"
-           data-dimensions="30x36 in"
-           data-price="$1000"
-            class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    <img src="art/Historic-Murray.jpg" alt="Historic Murray"
+         data-title="Historic Murray"
+         data-medium="Oil on Canvas"
+         data-dimensions="30x36 in"
+         data-price="$1000"
+         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
 
-      <img src="art/Pine Creek.jpg" alt="Pine Creek"
-           data-title="Pine Creek"
-           data-medium="Oil on Board"
-           data-dimensions="18x24 in"
-           data-price="$800"
-            class="max-w-full h-auto object-contain rounded shadow cursor-pointer">  
-    </div>
-  </section>
+    <img src="art/Pine-Creek.jpg" alt="Pine Creek"
+         data-title="Pine Creek"
+         data-medium="Oil on Board"
+         data-dimensions="18x24 in"
+         data-price="$800"
+         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">  
+  </div>
+</section>
 
-  <!-- Artwork Modal with animation -->
-  <div id="artModal" 
-       class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4 
-              transition-opacity duration-300 ease-out opacity-0">
-    <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative transform transition-transform duration-300 ease-out scale-95">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
-      <img id="modalImg" src="" alt="" class="max-w-full h-auto object-contain rounded mb-4">
-      <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
-      <p id="modalMedium" class="mb-1"></p>
-      <p id="modalDimensions" class="mb-1"></p>
-      <p id="modalPrice" class="mb-4"></p>
-      <a id="inquireBtn" href="#contact" 
-        onclick="closeModal()" 
-        class="inline-block px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded transition">
-  Inquire About This Piece
-      </a>
-    </div>
+<!-- Artwork Modal with animation -->
+<div id="artModal" 
+     class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4 
+            transition-opacity duration-300 ease-out opacity-0">
+  <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative transform transition-transform duration-300 ease-out scale-95 
+              max-h-[90vh] overflow-y-auto">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+    
+    <!-- Constrain image height -->
+    <img id="modalImg" src="" alt="" 
+         class="max-w-full max-h-[70vh] h-auto object-contain rounded mb-4">
+    
+    <!-- Visible text -->
+    <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-white"></h3>
+    <p id="modalMedium" class="mb-1 text-gray-300"></p>
+    <p id="modalDimensions" class="mb-1 text-gray-300"></p>
+    <p id="modalPrice" class="mb-4 text-gray-300"></p>
+    
+    <!-- Button -->
+    <a id="inquireBtn" href="#contact" 
+       onclick="closeModal()" 
+       class="inline-block px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded transition text-white">
+      Inquire About This Piece
+    </a>
+  </div>
 </div>
+
 
   <!-- About Section -->
 <section id="about" class="py-16 px-4 max-w-6xl mx-auto border-t border-gray-300 
@@ -196,171 +206,63 @@
   </form>
 </section>
 
+<!-- Streamlined JavaScript for Gallery Modal -->
+<script>
+  const galleryGrid = document.getElementById("galleryGrid");
+  const artModal = document.getElementById("artModal");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalMedium = document.getElementById("modalMedium");
+  const modalDimensions = document.getElementById("modalDimensions");
+  const modalPrice = document.getElementById("modalPrice");
+  const artworkField = document.getElementById("artworkField"); // optional hidden form field
 
-  <!-- JavaScript for Gallery Modal -->
-  <script>
-    const galleryGrid = document.getElementById("galleryGrid");
-    const artModal = document.getElementById("artModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalMedium = document.getElementById("modalMedium");
-    const modalDimensions = document.getElementById("modalDimensions");
-    const modalPrice = document.getElementById("modalPrice");
+  // Open modal with animation
+  galleryGrid.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") {
+      // Populate modal content from dataset
+      modalImg.src = e.target.src;
+      modalTitle.textContent = e.target.dataset.title;
+      modalMedium.textContent = e.target.dataset.medium;
+      modalDimensions.textContent = e.target.dataset.dimensions;
+      modalPrice.textContent = e.target.dataset.price;
 
-    // Open modal with animation
-    galleryGrid.addEventListener("click", (e) => {
-      if (e.target.tagName === "IMG") {
-        modalImg.src = e.target.src;
-        modalTitle.textContent = e.target.dataset.title;
-        modalMedium.textContent = e.target.dataset.medium;
-        modalDimensions.textContent = e.target.dataset.dimensions;
-        modalPrice.textContent = e.target.dataset.price;
-
-        artModal.classList.remove("hidden", "opacity-0");
-        artModal.classList.add("flex", "opacity-100");
-
-        const modalContent = artModal.querySelector("div");
-        modalContent.classList.remove("scale-95");
-        modalContent.classList.add("scale-100");
-      }
-    });
-
-    // Close modal with animation
-    function closeModal() {
-      artModal.classList.remove("opacity-100");
-      artModal.classList.add("opacity-0");
-
-      const modalContent = artModal.querySelector("div");
-      modalContent.classList.remove("scale-100");
-      modalContent.classList.add("scale-95");
-
-      setTimeout(() => {
-        artModal.classList.add("hidden");
-        artModal.classList.remove("flex");
-      }, 300); // matches duration-300
-    }
-
-    // Close modal when clicking outside content
-    artModal.addEventListener("click", (e) => {
-      if (e.target === artModal) {
-        closeModal();
-      }
-    });
-  </script>
-    </section> <!-- Contact Section -->
-
-  <!-- JavaScript for Gallery Modal and Contact Form -->
-  <script>
-    const galleryGrid = document.getElementById("galleryGrid");
-    const artModal = document.getElementById("artModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalMedium = document.getElementById("modalMedium");
-    const modalDimensions = document.getElementById("modalDimensions");
-    const modalPrice = document.getElementById("modalPrice");
-    const artworkField = document.getElementById("artworkField");
-
-    // Open modal with animation
-    galleryGrid.addEventListener("click", (e) => {
-      if (e.target.tagName === "IMG") {
-        modalImg.src = e.target.src;
-        modalTitle.textContent = e.target.dataset.title;
-        modalMedium.textContent = e.target.dataset.medium;
-        modalDimensions.textContent = e.target.dataset.dimensions;
-        modalPrice.textContent = e.target.dataset.price;
-
-        // Pass artwork title into hidden form field
+      // If you have a hidden form field, pass the artwork title
+      if (artworkField) {
         artworkField.value = e.target.dataset.title;
-
-        artModal.classList.remove("hidden", "opacity-0");
-        artModal.classList.add("flex", "opacity-100");
-
-        const modalContent = artModal.querySelector("div");
-        modalContent.classList.remove("scale-95");
-        modalContent.classList.add("scale-100");
       }
-    });
 
-    // Close modal with animation
-    function closeModal() {
-      artModal.classList.remove("opacity-100");
-      artModal.classList.add("opacity-0");
+      // Show modal
+      artModal.classList.remove("hidden", "opacity-0");
+      artModal.classList.add("flex", "opacity-100");
 
       const modalContent = artModal.querySelector("div");
-      modalContent.classList.remove("scale-100");
-      modalContent.classList.add("scale-95");
-
-      setTimeout(() => {
-        artModal.classList.add("hidden");
-        artModal.classList.remove("flex");
-      }, 300); // matches duration-300
+      modalContent.classList.remove("scale-95");
+      modalContent.classList.add("scale-100");
     }
+  });
 
-    // Close modal when clicking outside content
-    artModal.addEventListener("click", (e) => {
-      if (e.target === artModal) {
-        closeModal();
-      }
-    });
-  </script>
+  // Close modal with animation
+  function closeModal() {
+    artModal.classList.remove("opacity-100");
+    artModal.classList.add("opacity-0");
+
+    const modalContent = artModal.querySelector("div");
+    modalContent.classList.remove("scale-100");
+    modalContent.classList.add("scale-95");
+
+    setTimeout(() => {
+      artModal.classList.add("hidden");
+      artModal.classList.remove("flex");
+    }, 300); // matches duration-300
+  }
+
+  // Close modal when clicking outside content
+  artModal.addEventListener("click", (e) => {
+    if (e.target === artModal) {
+      closeModal();
+    }
+  });
+</script>
 </body>
 </html>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
