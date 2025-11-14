@@ -20,6 +20,18 @@
       break-inside: avoid;
     }
   </style>
+
+  <style>
+    #modalImg {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+  
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
@@ -114,8 +126,8 @@
     <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
     
     <img id="modalImg" src="" alt="" 
-         class="max-w-full max-h-[70vh] h-auto object-contain rounded mb-4">
-
+          class="w-full h-auto max-h-[70vh] object-contain rounded mb-4">
+    
     <div id="extraImages" class="flex gap-2 overflow-x-auto mb-4">
       <!-- Thumbnails will be injected here -->
     </div>
@@ -298,6 +310,7 @@
 
 </body>
 </html>
+
 
 
 
