@@ -84,6 +84,7 @@
          data-medium="Oil on Canvas"
          data-dimensions="24x48 in"
          data-price="$1500"
+      data-extra="art/Three-Rivers-detail1.jpg,art/Three-Rivers-detail2.jpg,art/Three-Rivers-detail3.jpg"
          class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
 
     <img src="art/Historic Murray.jpg" alt="Historic Murray"
@@ -110,9 +111,10 @@
               max-h-[90vh] overflow-y-auto">
     <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
     
-    <!-- Constrain image height -->
     <img id="modalImg" src="" alt="" 
          class="max-w-full max-h-[70vh] h-auto object-contain rounded mb-4">
+
+    <div id="extraImages" class="grid grid-cols-3 gap-2 mb-4"></div>
     
     <!-- Visible text -->
     <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-white"></h3>
@@ -218,29 +220,37 @@
   const artworkField = document.getElementById("artworkField"); // optional hidden form field
 
   // Open modal with animation
-  galleryGrid.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG") {
-      // Populate modal content from dataset
-      modalImg.src = e.target.src;
-      modalTitle.textContent = e.target.dataset.title;
-      modalMedium.textContent = e.target.dataset.medium;
-      modalDimensions.textContent = e.target.dataset.dimensions;
-      modalPrice.textContent = e.target.dataset.price;
+galleryGrid.addEventListener("click", (e) => {
+  if (e.target.tagName === "IMG") {
+    modalImg.src = e.target.src;
+    modalTitle.textContent = e.target.dataset.title;
+    modalMedium.textContent = e.target.dataset.medium;
+    modalDimensions.textContent = e.target.dataset.dimensions;
+    modalPrice.textContent = e.target.dataset.price;
 
-      // If you have a hidden form field, pass the artwork title
-      if (artworkField) {
-        artworkField.value = e.target.dataset.title;
-      }
+    // Clear previous extra images
+    const extraImagesContainer = document.getElementById("extraImages");
+    extraImagesContainer.innerHTML = "";
 
-      // Show modal
-      artModal.classList.remove("hidden", "opacity-0");
-      artModal.classList.add("flex", "opacity-100");
-
-      const modalContent = artModal.querySelector("div");
-      modalContent.classList.remove("scale-95");
-      modalContent.classList.add("scale-100");
+    // Load extra images if available
+    if (e.target.dataset.extra) {
+      const extras = e.target.dataset.extra.split(",");
+      extras.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src.trim();
+        img.className = "w-full h-auto object-contain rounded shadow";
+        extraImagesContainer.appendChild(img);
+      });
     }
-  });
+
+    artModal.classList.remove("hidden", "opacity-0");
+    artModal.classList.add("flex", "opacity-100");
+
+    const modalContent = artModal.querySelector("div");
+    modalContent.classList.remove("scale-95");
+    modalContent.classList.add("scale-100");
+  }
+});
 
   // Close modal with animation
   function closeModal() {
@@ -266,5 +276,6 @@
 </script>
 </body>
 </html>
+
 
 
