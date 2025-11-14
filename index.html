@@ -210,6 +210,7 @@
   </form>
 </section>
 
+
 <!-- Streamlined JavaScript for Gallery Modal -->
 <script>
   const galleryGrid = document.getElementById("galleryGrid");
@@ -222,61 +223,53 @@
   const artworkField = document.getElementById("artworkField"); // optional hidden form field
 
   // Open modal with animation
-galleryGrid.addEventListener("click", (e) => {
-  if (e.target.tagName === "IMG") {
-    // Set main image and details
-    modalImg.src = e.target.src;
-    modalTitle.textContent = e.target.dataset.title;
-    modalMedium.textContent = e.target.dataset.medium;
-    modalDimensions.textContent = e.target.dataset.dimensions;
-    modalPrice.textContent = e.target.dataset.price;
+  galleryGrid.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") {
+      // Set main image and details
+      modalImg.src = e.target.src;
+      modalTitle.textContent = e.target.dataset.title;
+      modalMedium.textContent = e.target.dataset.medium;
+      modalDimensions.textContent = e.target.dataset.dimensions;
+      modalPrice.textContent = e.target.dataset.price;
 
-    // Clear previous thumbnails
-    const extraImagesContainer = document.getElementById("extraImages");
-    extraImagesContainer.innerHTML = "";
+      // Clear previous thumbnails
+      const extraImagesContainer = document.getElementById("extraImages");
+      if (extraImagesContainer) {
+        extraImagesContainer.innerHTML = "";
 
-    // Always include the original image as the first thumbnail
-    const originalThumb = document.createElement("img");
-    originalThumb.src = e.target.src;
-    originalThumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
-    originalThumb.addEventListener("click", () => {
-      modalImg.src = originalThumb.src;
-    });
-    extraImagesContainer.appendChild(originalThumb);
-
-    // Add extra thumbnails if available
-    if (e.target.dataset.extra) {
-      const extras = e.target.dataset.extra.split(",");
-      extras.forEach(src => {
-        const thumb = document.createElement("img");
-        thumb.src = src.trim();
-        thumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
-        thumb.addEventListener("click", () => {
-          modalImg.src = thumb.src;
+        // Always include the original image as the first thumbnail
+        const originalThumb = document.createElement("img");
+        originalThumb.src = e.target.src;
+        originalThumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
+        originalThumb.addEventListener("click", () => {
+          modalImg.src = originalThumb.src;
         });
-        extraImagesContainer.appendChild(thumb);
-      });
+        extraImagesContainer.appendChild(originalThumb);
+
+        // Add extra thumbnails if available
+        if (e.target.dataset.extra) {
+          const extras = e.target.dataset.extra.split(",");
+          extras.forEach(src => {
+            const thumb = document.createElement("img");
+            thumb.src = src.trim();
+            thumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
+            thumb.addEventListener("click", () => {
+              modalImg.src = thumb.src;
+            });
+            extraImagesContainer.appendChild(thumb);
+          });
+        }
+      }
+
+      // Show modal
+      artModal.classList.remove("hidden", "opacity-0");
+      artModal.classList.add("flex", "opacity-100");
+
+      const modalContent = artModal.querySelector("div");
+      modalContent.classList.remove("scale-95");
+      modalContent.classList.add("scale-100");
     }
-
-    // Show modal
-    artModal.classList.remove("hidden", "opacity-0");
-    artModal.classList.add("flex", "opacity-100");
-
-    const modalContent = artModal.querySelector("div");
-    modalContent.classList.remove("scale-95");
-    modalContent.classList.add("scale-100");
-  }
-});
-
-
-    artModal.classList.remove("hidden", "opacity-0");
-    artModal.classList.add("flex", "opacity-100");
-
-    const modalContent = artModal.querySelector("div");
-    modalContent.classList.remove("scale-95");
-    modalContent.classList.add("scale-100");
-  }
-});
+  });
 
   // Close modal with animation
   function closeModal() {
@@ -300,8 +293,10 @@ galleryGrid.addEventListener("click", (e) => {
     }
   });
 </script>
+
 </body>
 </html>
+
 
 
 
