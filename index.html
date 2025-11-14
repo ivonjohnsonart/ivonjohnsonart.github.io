@@ -224,29 +224,50 @@
   // Open modal with animation
 galleryGrid.addEventListener("click", (e) => {
   if (e.target.tagName === "IMG") {
+    // Set main image and details
     modalImg.src = e.target.src;
     modalTitle.textContent = e.target.dataset.title;
     modalMedium.textContent = e.target.dataset.medium;
     modalDimensions.textContent = e.target.dataset.dimensions;
     modalPrice.textContent = e.target.dataset.price;
 
-    // Clear previous extra images
+    // Clear previous thumbnails
     const extraImagesContainer = document.getElementById("extraImages");
     extraImagesContainer.innerHTML = "";
 
-    // Load extra images if available
-     if (e.target.dataset.extra) {
+    // Always include the original image as the first thumbnail
+    const originalThumb = document.createElement("img");
+    originalThumb.src = e.target.src;
+    originalThumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
+    originalThumb.addEventListener("click", () => {
+      modalImg.src = originalThumb.src;
+    });
+    extraImagesContainer.appendChild(originalThumb);
+
+    // Add extra thumbnails if available
+    if (e.target.dataset.extra) {
       const extras = e.target.dataset.extra.split(",");
       extras.forEach(src => {
         const thumb = document.createElement("img");
         thumb.src = src.trim();
         thumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
         thumb.addEventListener("click", () => {
-          modalImg.src = thumb.src; // swap main image
+          modalImg.src = thumb.src;
         });
         extraImagesContainer.appendChild(thumb);
       });
     }
+
+    // Show modal
+    artModal.classList.remove("hidden", "opacity-0");
+    artModal.classList.add("flex", "opacity-100");
+
+    const modalContent = artModal.querySelector("div");
+    modalContent.classList.remove("scale-95");
+    modalContent.classList.add("scale-100");
+  }
+});
+
 
     artModal.classList.remove("hidden", "opacity-0");
     artModal.classList.add("flex", "opacity-100");
@@ -281,6 +302,7 @@ galleryGrid.addEventListener("click", (e) => {
 </script>
 </body>
 </html>
+
 
 
 
