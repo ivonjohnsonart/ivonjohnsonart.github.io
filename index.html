@@ -34,6 +34,31 @@
   
 </head>
 
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sold-sticker {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
+  transform: rotate(-20deg);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+  
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Sticky Navigation -->
@@ -83,40 +108,50 @@
 <section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
   <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
   <div id="galleryGrid" class="masonry">
-    <!-- Images with dataset attributes -->
-    <img src="art/Rainbow Bar.jpg" alt="Rainbow Bar"
-         data-title="Rainbow Bar"
-         data-description="Currently on display at Sage Lodge in Pray, MT"
-         data-medium="Oil on Canvas"
-         data-dimensions="24x36 in"
-         data-price="$1200"
-             data-extra="art/Rainbow-Bar-detail1.jpg"
-         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    
+<div class="image-container">
+      <img src="art/Rainbow Bar.jpg" alt="Rainbow Bar"
+           data-title="Rainbow Bar"
+           data-description="Currently on display at Sage Lodge in Pray, MT"
+           data-medium="Oil on Canvas"
+           data-dimensions="24x36 in"
+           data-price="$1200"
+           data-extra="art/Rainbow-Bar-detail1.jpg"
+           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    </div>
 
-    <img src="art/Three Rivers.jpg" alt="Three Rivers"
-         data-title="Three Rivers"
-         data-description="Currently on display at Sage Lodge in Pray, MT"
-         data-medium="Oil on Canvas"
-         data-dimensions="24x48 in"
-         data-price="$1500"
-      data-extra="art/Three-Rivers-detail1.jpg"
-         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    <div class="image-container">
+      <img src="art/Three Rivers.jpg" alt="Three Rivers"
+           data-title="Three Rivers"
+           data-description="Currently on display at Sage Lodge in Pray, MT"
+           data-medium="Oil on Canvas"
+           data-dimensions="24x48 in"
+           data-price="$1500"
+           data-extra="art/Three-Rivers-detail1.jpg"
+           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    </div>
 
-    <img src="art/Historic Murray.jpg" alt="Historic Murray"
-         data-title="Historic Murray"
-         data-description="Currently on display at Sage Lodge in Pray, MT"
-         data-medium="Oil on Canvas"
-         data-dimensions="30x36 in"
-         data-price="$1000"
+    <div class="image-container">
+      <img src="art/Historic Murray.jpg" alt="Historic Murray"
+           data-title="Historic Murray"
+           data-description="Currently on display at Sage Lodge in Pray, MT"
+           data-medium="Oil on Canvas"
+           data-dimensions="30x36 in"
+           data-price="$1000"
            data-extra="art/Historic-Murray-detail1.jpg"
-         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+    </div>
 
-    <img src="art/Pine Creek.jpg" alt="Pine Creek"
-         data-title="SOLD-Pine Creek"
-         data-medium="Oil on Board"
-         data-dimensions="18x24 in"
-         data-price=""
-         class="max-w-full h-auto object-contain rounded shadow cursor-pointer">  
+    <!-- Example WITH SOLD sticker -->
+    <div class="image-container">
+      <img src="art/Pine Creek.jpg" alt="Pine Creek"
+           data-title="SOLD-Pine Creek"
+           data-medium="Oil on Board"
+           data-dimensions="18x24 in"
+           data-price=""
+           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+      <div class="sold-sticker">SOLD</div>
+    </div>
   </div>
 </section>
 
@@ -315,6 +350,7 @@
 
 </body>
 </html>
+
 
 
 
