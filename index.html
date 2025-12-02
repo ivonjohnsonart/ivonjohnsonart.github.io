@@ -41,16 +41,17 @@
 }
 
 .sold-sticker {
-  position: absolute;
-  top: 20px;
-  left: -30px;
+   position: absolute;
+  top: 5%;        /* relative to image height */
+  left: -10%;     /* relative to image width */
   background: red;
   color: white;
   font-weight: bold;
-  padding: 10px 40px;
+  padding: 2% 8%; /* scales with image size */
   transform: rotate(-20deg);
-  font-size: 20px;
+  font-size: 2vw; /* scales with viewport width */
   text-transform: uppercase;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
 }
   </style>  
 </head>
@@ -347,6 +348,7 @@
 
 </body>
 </html>
+
 
 
 
