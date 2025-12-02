@@ -9,16 +9,51 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-  .masonry {
+    /* Masonry layout */
+    .masonry {
       column-count: 2;
       column-gap: 1rem;
     }
-    .masonry img {
-      width: 100%;
-      display: block;
-      margin-bottom: 1rem;
+    .masonry .image-container {
       break-inside: avoid;
+      margin-bottom: 1rem;
     }
+
+    /* Image wrapper */
+    .image-container {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .image-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* SOLD sticker */
+    .sold-sticker {
+      position: absolute;
+      top: 10px;
+      left: -15px;
+      background: #b22222; /* subdued red */
+      color: white;
+      font-weight: bold;
+      padding: 4px 12px;
+      transform: rotate(-20deg);
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 640px) {
+      .sold-sticker {
+        font-size: 12px;
+        padding: 3px 10px;
+      }
+    }
+
+    /* Modal image */
     #modalImg {
       width: 100%;
       height: auto;
@@ -27,45 +62,12 @@
       display: block;
       margin: 0 auto;
     }
-
-  .image-container {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-}
-
-.image-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.sold-sticker {
-  position: absolute;
-  top: 10px;        /* smaller offset */
-  left: -15px;      /* closer to the image */
-  background: #b22222; /* subdued brick red */
-  color: white;
-  font-weight: bold;
-  padding: 4px 12px; /* smaller padding */
-  transform: rotate(-20deg);
-  font-size: 14px;   /* fixed, smaller text size */
-  text-transform: uppercase;
-  border-radius: 3px;
-  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-@media (max-width: 640px) {
-  .sold-sticker {
-    font-size: 12px;
-    padding: 3px 10px;
-  }
-  </style>  
+  </style>
 </head>
-
 
 <body class="bg-gray-900 text-white font-sans">
 
-  <!-- Sticky Navigation -->
+  <!-- Navigation -->
   <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-95 backdrop-blur-sm z-50 shadow-md">
     <div class="max-w-6xl mx-auto flex justify-around items-center px-6 py-4">
       <span class="font-bold text-xl">Ivon Johnson Art</span>
@@ -78,318 +80,64 @@
     </div>
   </nav>
 
- <!-- Hero Section -->
-<section id="hero" class="relative h-screen flex items-end justify-left text-center px-4 pt-20 bg-cover bg-center" 
-         style="background-image: url('art/hero-landing.jpg');">
-  
-  <!-- Overlay for readability -->
-  <div class="absolute inset-0 bg-black bg-opacity-25"></div>
-
-  <!-- Text Content anchored at bottom -->
- <div class="relative z-10 max-w-5xl pb-12 text-left">
-  <!-- Tagline -->
-  <p class="text-3xl sm:text-4xl md:text-6xl mb-6 italic text-gray-200">
-    Art inspired by place, connection, and shared experience.
-  </p>
-
-  <!-- Supporting paragraph -->
-  <p class="text-lg sm:text-xl md:text-2xl mb-6 text-gray-200">
-    Ivon Johnson creates oil paintings that explore the relationships between place, memory, and belonging. 
-    Through light, color, and emotion, his work captures the quiet beauty of moments and spaces that bring people together.
-  </p>
-
-  <!-- Call to action -->
-  <a href="#gallery" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
-    View Gallery
-  </a>
-</div>
-
-</section>
-
-
-  <!-- Gallery Section -->
-<!-- Gallery Section -->
-<section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
-  <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
-  <div id="galleryGrid" class="masonry">
-    
-<div class="image-container">
-      <img src="art/Rainbow Bar.jpg" alt="Rainbow Bar"
-           data-title="Rainbow Bar"
-           data-description="Currently on display at Sage Lodge in Pray, MT"
-           data-medium="Oil on Canvas"
-           data-dimensions="24x36 in"
-           data-price="$1200"
-           data-extra="art/Rainbow-Bar-detail1.jpg"
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
-    </div>
-
-    <div class="image-container">
-      <img src="art/Three Rivers.jpg" alt="Three Rivers"
-           data-title="Three Rivers"
-           data-description="Currently on display at Sage Lodge in Pray, MT"
-           data-medium="Oil on Canvas"
-           data-dimensions="24x48 in"
-           data-price="$1500"
-           data-extra="art/Three-Rivers-detail1.jpg"
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
-    </div>
-
-    <div class="image-container">
-      <img src="art/Historic Murray.jpg" alt="Historic Murray"
-           data-title="Historic Murray"
-           data-description="Currently on display at Sage Lodge in Pray, MT"
-           data-medium="Oil on Canvas"
-           data-dimensions="30x36 in"
-           data-price="$1000"
-           data-extra="art/Historic-Murray-detail1.jpg"
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
-    </div>
-
-    <!-- Example WITH SOLD sticker -->
-    <div class="image-container">
-      <img src="art/Pine Creek.jpg" alt="Pine Creek"
-           data-title="SOLD-Pine Creek"
-           data-medium="Oil on Board"
-           data-dimensions="18x24 in"
-           data-price=""
-           class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
-      <div class="sold-sticker">SOLD</div>
-    </div>
-  </div>
-</section>
-
-<!-- Artwork Modal with animation -->
-<div id="artModal" 
-     class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4 
-            transition-opacity duration-300 ease-out opacity-0">
-  <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative transform transition-transform duration-300 ease-out scale-95 
-              max-h-[90vh] overflow-y-auto">
-    <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
-    
-    <img id="modalImg" src="" alt="" 
-          class="w-full h-auto max-h-[70vh] object-contain rounded mb-4">
-    
-    <div id="extraImages" class="flex gap-2 overflow-x-auto mb-4">
-      <!-- Thumbnails will be injected here -->
-    </div>
-    
-    <!-- Visible text -->
-    <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-white"></h3>
-    <p id="modalDescription" class="mb-2 text-gray-400 italic"></p>
-    <p id="modalMedium" class="mb-1 text-gray-300"></p>
-    <p id="modalDimensions" class="mb-1 text-gray-300"></p>
-    <p id="modalPrice" class="mb-4 text-gray-300"></p>
-    
-    <!-- Button -->
-    <a id="inquireBtn" href="#contact" 
-       onclick="closeModal()" 
-       class="inline-block px-6 py-2 bg-gray-700 hover:bg-gray-600 rounded transition text-white">
-      Inquire About This Piece
-    </a>
-  </div>
-</div>
-
-
-  <!-- About Section -->
-<section id="about" class="py-16 px-4 max-w-6xl mx-auto border-t border-gray-300 
-                           bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 border-b border-gray-600">
- <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">About</h2>
-
-  <div class="flex flex-col md:flex-row md:items-center md:justify-center gap-10">
-    <!-- Text Card -->
-    <div class="bg-gray-800 rounded-lg shadow-lg p-8 text-center max-w-2xl text-gray-100 flex flex-col justify-center">
-      <p class="mb-6 text-lg md:text-xl leading-relaxed">
-        Ivon Johnson is a retired U.S. Air Force veteran based in Mountain Home, Idaho. His art reflects a career that carried him across the globe and illuminates the timeless connection between people and place. A true artist, Ivon works across multiple mediums; his woodworking extends his creative vision as he designs and handcrafts custom frames for each piece, ensuring every work is presented as a complete creation.
+  <!-- Hero -->
+  <section id="hero" class="relative h-screen flex items-end justify-left text-center px-4 pt-20 bg-cover bg-center" 
+           style="background-image: url('art/hero-landing.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-25"></div>
+    <div class="relative z-10 max-w-5xl pb-12 text-left">
+      <p class="text-3xl sm:text-4xl md:text-6xl mb-6 italic text-gray-200">
+        Art inspired by place, connection, and shared experience.
       </p>
-      <p class="text-lg md:text-xl leading-relaxed mb-6">
-        Through light and color, his work evokes memory and belonging in the landscapes that shape our lives. A selection of his work is currently on display at Sage Lodge in Pray, Montana.
+      <p class="text-lg sm:text-xl md:text-2xl mb-6 text-gray-200">
+        Ivon Johnson creates oil paintings that explore the relationships between place, memory, and belonging.
       </p>
-      <!-- Instagram Gradient Outline Button -->
-      <div class="mt-6 flex justify-center">
-        <a href="https://instagram.com/ivon_johnson_art" target="_blank"
-           class="relative inline-flex items-center justify-center px-5 py-2 rounded-lg font-semibold text-lg text-white transition">
-          <!-- Thin Gradient Border -->
-          <span class="absolute inset-0 rounded-lg p-[1px] bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500"></span>
-          <!-- Inner Dark Background -->
-          <span class="relative flex items-center justify-center bg-gray-800 rounded-lg px-5 py-2">
-            <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24">
-              <path d="M12 2.2c3.2 0 3.6 0 ..."></path>
-            </svg>
-            Follow on Instagram
-          </span>
-        </a>
+      <a href="#gallery" class="px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
+        View Gallery
+      </a>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-16 px-4 max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Gallery</h2>
+    <div id="galleryGrid" class="masonry">
+
+      <!-- Available piece -->
+      <div class="image-container">
+        <img src="art/Rainbow Bar.jpg" alt="Rainbow Bar"
+             data-title="Rainbow Bar"
+             data-description="Currently on display at Sage Lodge in Pray, MT"
+             data-medium="Oil on Canvas"
+             data-dimensions="24x36 in"
+             data-price="$1200"
+             data-extra="art/Rainbow-Bar-detail1.jpg"
+             class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
       </div>
+
+      <!-- SOLD piece -->
+      <div class="image-container">
+        <img src="art/Pine Creek.jpg" alt="Pine Creek"
+             data-title="SOLD-Pine Creek"
+             data-medium="Oil on Board"
+             data-dimensions="18x24 in"
+             data-price=""
+             class="max-w-full h-auto object-contain rounded shadow cursor-pointer">
+        <div class="sold-sticker">SOLD</div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Artist Photo -->
-    <div class="flex-shrink-0 flex items-center">
-      <img src="art/ivon-johnson.jpg" 
-           alt="Portrait of Ivon Johnson" 
-           class="rounded-lg shadow-lg w-48 sm:w-64 md:w-80 h-auto object-cover mx-auto md:mx-0 
-                  ring-4 ring-gray-500 ring-offset-2 ring-offset-gray-800">
-    </div>
-  </div>
-</section>
-
-
-
- <!-- Contact Section -->
-<section id="contact" class="py-16 px-4 max-w-4xl mx-auto text-center">
-   <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Contact</h2>
-  
-  <p class="mb-4 text-xl">For inquiries about artwork or commissions, please use the form below:</p>
-
-  <form action="https://formspree.io/f/xnnlqoyj" method="POST" class="space-y-4 max-w-md mx-auto text-left">
-     <input type="hidden" id="artworkField" name="artwork" value="">
-    <div>
-      <label for="name" class="block mb-1">Name</label>
-      <input type="text" id="name" name="name" required
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
-
-    <div>
-      <label for="email" class="block mb-1">Email</label>
-      <input type="email" id="email" name="_replyto" required
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
-
-    <div>
-      <label for="message" class="block mb-1">Message</label>
-      <textarea id="message" name="message" rows="5" required
-                class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700"></textarea>
-    </div>
-
-    <button type="submit" 
-            class="w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
-      Send Message
-    </button>
-  </form>
-</section>
-
-
-<!-- Streamlined JavaScript for Gallery Modal -->
-<script>
-  const galleryGrid = document.getElementById("galleryGrid");
-  const artModal = document.getElementById("artModal");
-  const modalImg = document.getElementById("modalImg");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalMedium = document.getElementById("modalMedium");
-  const modalDimensions = document.getElementById("modalDimensions");
-  const modalPrice = document.getElementById("modalPrice");
-  const artworkField = document.getElementById("artworkField"); // optional hidden form field
-
-  // Open modal with animation
-  galleryGrid.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG") {
-      // Set main image and details
-      modalImg.src = e.target.src;
-      modalTitle.textContent = e.target.dataset.title;
-      modalDescription.textContent = e.target.dataset.description;
-      modalMedium.textContent = e.target.dataset.medium;
-      modalDimensions.textContent = e.target.dataset.dimensions;
-      modalPrice.textContent = e.target.dataset.price;
-
-      // Clear previous thumbnails
-      const extraImagesContainer = document.getElementById("extraImages");
-      if (extraImagesContainer) {
-        extraImagesContainer.innerHTML = "";
-
-        // Always include the original image as the first thumbnail
-        const originalThumb = document.createElement("img");
-        originalThumb.src = e.target.src;
-        originalThumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
-        originalThumb.addEventListener("click", () => {
-          modalImg.src = originalThumb.src;
-        });
-        extraImagesContainer.appendChild(originalThumb);
-
-        // Add extra thumbnails if available
-        if (e.target.dataset.extra) {
-          const extras = e.target.dataset.extra.split(",");
-          extras.forEach(src => {
-            const thumb = document.createElement("img");
-            thumb.src = src.trim();
-            thumb.className = "h-24 object-cover rounded cursor-pointer hover:opacity-80 transition";
-            thumb.addEventListener("click", () => {
-              modalImg.src = thumb.src;
-            });
-            extraImagesContainer.appendChild(thumb);
-          });
-        }
-      }
-
-      // Show modal
-      artModal.classList.remove("hidden", "opacity-0");
-      artModal.classList.add("flex", "opacity-100");
-
-      const modalContent = artModal.querySelector("div");
-      modalContent.classList.remove("scale-95");
-      modalContent.classList.add("scale-100");
-    }
-  });
-
-  // Close modal with animation
-  function closeModal() {
-    artModal.classList.remove("opacity-100");
-    artModal.classList.add("opacity-0");
-
-    const modalContent = artModal.querySelector("div");
-    modalContent.classList.remove("scale-100");
-    modalContent.classList.add("scale-95");
-
-    setTimeout(() => {
-      artModal.classList.add("hidden");
-      artModal.classList.remove("flex");
-    }, 300); // matches duration-300
-  }
-
-  // Close modal when clicking outside content
-  artModal.addEventListener("click", (e) => {
-    if (e.target === artModal) {
-      closeModal();
-    }
-  });
-function openModal(img) {
-  const modalImg = document.getElementById("modalImg");
-  modalImg.src = img.src;
-  modalImg.setAttribute("data-title", img.getAttribute("data-title"));
-
-  // other modal setup code...
-
-  updateInquireButton(); // ✅ check if SOLD
-}
-function updateInquireButton() {
-  const modalImg = document.getElementById("modalImg");
-  const inquireBtn = document.getElementById("inquireBtn");
-
-  if (!modalImg || !inquireBtn) return;
-
-  const title = modalImg.getAttribute("data-title") || "";
-
-  // Hide button if data-title contains "SOLD"
-  if (title.toUpperCase().includes("SOLD")) {
-    inquireBtn.style.display = "none";
-  } else {
-    inquireBtn.style.display = "inline-block";
-  }
-}
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Modal -->
+  <div id="artModal" 
+       class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50 p-4 
+              transition-opacity duration-300 ease-out opacity-0">
+    <div class="bg-gray-900 p-6 rounded max-w-3xl w-full relative transform transition-transform duration-300 ease-out scale-95 
+                max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+      
+      <img id="modalImg" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain rounded mb-4">
+      
+      <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-white"></h3>
+      <p id="modalDescription" class="mb-2 text-gray-400 italic"></p>
+      <p id="modalMedium" class="mb-1 text-gray-300">
