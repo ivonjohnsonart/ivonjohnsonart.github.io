@@ -350,10 +350,34 @@
       closeModal();
     }
   });
-</script>
+function openModal(img) {
+  const modalImg = document.getElementById("modalImg");
+  modalImg.src = img.src;
+  modalImg.setAttribute("data-title", img.getAttribute("data-title"));
 
+  // other modal setup code...
+
+  updateInquireButton(); // ✅ check if SOLD
+}
+function updateInquireButton() {
+  const modalImg = document.getElementById("modalImg");
+  const inquireBtn = document.getElementById("inquireBtn");
+
+  if (!modalImg || !inquireBtn) return;
+
+  const title = modalImg.getAttribute("data-title") || "";
+
+  // Hide button if data-title contains "SOLD"
+  if (title.toUpperCase().includes("SOLD")) {
+    inquireBtn.style.display = "none";
+  } else {
+    inquireBtn.style.display = "inline-block";
+  }
+}
+  </script>
 </body>
 </html>
+
 
 
 
