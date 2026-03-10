@@ -34,7 +34,6 @@
     .gallery {
       display: grid;
     grid-template-columns: repeat(4, 1fr);  /* EXACTLY 4 ACROSS */
-    justify-items: center;                  /* centers each Polaroid */
       gap: 30px;
       padding: 40px;
     }
@@ -46,8 +45,7 @@
       border-radius: 4px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transform: rotate(-1deg);
-      transition: transform 0.2s;
-       width: 360px;      
+      transition: transform 0.2s;     
        margin: 0 auto;        /* centers each Polaroid */
     }
 
@@ -57,7 +55,7 @@
 
 .polaroid img {
   width: 100%;
-  height: 200px;     /* choose your height */
+  height: 180px;     /* choose your height */
   object-fit: cover; /* keeps the image nicely cropped */
   border-radius: 3px;
 }
