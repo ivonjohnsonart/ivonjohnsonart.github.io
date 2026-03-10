@@ -15,20 +15,37 @@
     }
 
     /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(180deg, #000, #222);
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+   header {
+  background: #000; /* black header */
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between; /* left + right alignment */
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
-    header h1 {
-      color: #fff;
-      margin: 0;
-      font-size: 36px;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
+header h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+.back-button {
+  background: #fff;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.back-button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
+
 
     /* ===== GALLERY GRID ===== */
     .gallery {
@@ -122,6 +139,7 @@
 
   <header>
     <h1>Paint and Sip</h1>
+    <a href="index.html" class="back-button">Back to Ivon Johnson Art</a>
   </header>
 
   <!-- ===== GALLERY ===== -->
