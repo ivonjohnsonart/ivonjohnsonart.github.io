@@ -14,48 +14,50 @@
       color: #eee;
     }
 
-    /* ===== HEADER ===== */
-    .gallery-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(6px);
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
+/* ===== NEW HEADER ===== */
+.new-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;              /* Taller header */
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(6px);
+  padding: 20px 40px;         /* Extra padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
 
-    .site-title {
-      color: #fff;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+.new-title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
 
-    .back-button {
-      background: #fff;
-      color: #000;
-      padding: 10px 18px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s ease;
-    }
+.new-button {
+  background: #fff;
+  color: #000;
+  padding: 14px 22px;         /* Bigger button */
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.2s ease;
+}
 
-    .back-button:hover {
-      background: #e5e5e5;
-      transform: scale(1.05);
-    }
+.new-button:hover {
+  background: #e5e5e5;
+  transform: scale(1.05);
+}
+
 
     /* ===== GALLERY GRID ===== */
     .gallery {
-      margin-top: 140px; /* space below fixed header */
+      margin-top: 160px; /* space below fixed header */
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
@@ -141,10 +143,11 @@
 
 <body>
 
-<header class="gallery-header">
-  <span class="site-title">Paint & Sip</span>
-  <a href="index.html" class="back-button">Back to Main Page</a>
+<header class="new-header">
+  <h1 class="new-title">Paint & Sip</h1>
+  <a href="index.html" class="new-button">Back to Main Page</a>
 </header>
+
 
 <!-- ===== GALLERY ===== -->
 <div class="gallery">
