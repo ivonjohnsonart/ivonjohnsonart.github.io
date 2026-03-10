@@ -57,16 +57,15 @@
 
 
     /* ===== GALLERY GRID ===== */
-    .gallery {
-      margin-top:180px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      justify-items: center;
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+   .gallery {
+  margin: 180px auto 0;   /* pushes gallery down + centers it */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1200px;
+}
 
     /* ===== POLAROID STYLE ===== */
     .polaroid {
@@ -96,19 +95,23 @@
     }
 
     /* ===== UPCOMING SECTION ===== */
-    .upcoming {
-      background: #fff;
-      margin: 40px auto;
-      padding: 25px;
-      max-width: 700px;
-      border-left: 8px solid #8b5e3c;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
+ .upcoming {
+  background: #f5e3a1;        /* light gold — bright but gentle */
+  color: #000;
+  margin: 40px auto;
+  padding: 25px;
+  max-width: 700px;
+  border-left: 8px solid #d4c078;  /* deeper gold accent */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+}
 
-    .upcoming h2 {
-      margin-top: 0;
-      font-size: 26px;
-    }
+.upcoming h2 {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
 
     /* ===== LIGHTBOX ===== */
     .lightbox {
