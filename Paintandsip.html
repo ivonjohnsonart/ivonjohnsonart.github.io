@@ -5,6 +5,42 @@
   <title>Paint & Sip Gallery</title>
 
   <style>
+
+    /* Lightbox background */
+.lightbox {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.8);
+}
+
+/* Lightbox image */
+.lightbox-content {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(255,255,255,0.3);
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
     /* Page background: subtle canvas texture */
     body {
       margin: 0;
@@ -112,6 +148,39 @@
       Public event dates will be added here soon.
     </p>
   </div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+  <script>
+  // Get lightbox elements
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+
+  // Add click event to all gallery images
+  document.querySelectorAll(".polaroid img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "block";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  // Close when clicking the X
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  // Close when clicking outside the image
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
 
 </body>
 </html>
