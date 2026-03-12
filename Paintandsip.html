@@ -128,60 +128,72 @@
     </div>
   </section>
 
-  <!-- Private Parties Section -->
-  <section id="private-parties" class="py-16 px-4 max-w-4xl mx-auto text-center">
-    <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Private Parties</h2>
+  <section id="private-parties" style="padding: 5rem 1rem; max-width: 800px; margin: 0 auto; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Private Parties</h2>
 
-    <p class="mb-4 text-xl">
-      Interested in hosting a private Paint & Sip event? Whether it's a birthday, team-building activity,
-      or a special celebration, use the form below to request details and availability.
-    </p>
+  <p style="font-size: 1.2rem; margin-bottom: 2rem; line-height: 1.6;">
+    Interested in hosting a private Paint & Sip event? Whether it's a birthday, team-building activity,
+    or a special celebration, use the form below to request details and availability.
+  </p>
 
-    <form action="https://formspree.io/f/mgonyzav" method="POST"
-          class="space-y-4 max-w-md mx-auto text-left">
+  <form action="https://formspree.io/f/mgonyzav" method="POST"
+        style="max-width: 500px; margin: 0 auto; text-align: left;">
 
-      <div>
-        <label for="pp-name" class="block mb-1">Name</label>
-        <input type="text" id="pp-name" name="name" required
-               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-      </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="pp-name" style="display: block; margin-bottom: 0.3rem;">Name</label>
+      <input type="text" id="pp-name" name="name" required
+             style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;">
+    </div>
 
-      <div>
-        <label for="pp-email" class="block mb-1">Email</label>
-        <input type="email" id="pp-email" name="_replyto" required
-               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-      </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="pp-email" style="display: block; margin-bottom: 0.3rem;">Email</label>
+      <input type="email" id="pp-email" name="_replyto" required
+             style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;">
+    </div>
 
-      <div>
-        <label for="pp-phone" class="block mb-1">Phone Number</label>
-        <input type="text" id="pp-phone" name="phone"
-               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-      </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="pp-phone" style="display: block; margin-bottom: 0.3rem;">Phone Number</label>
+      <input type="text" id="pp-phone" name="phone"
+             style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;">
+    </div>
 
-      <div>
-        <label for="pp-date" class="block mb-1">Preferred Date</label>
-        <input type="date" id="pp-date" name="date"
-               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-      </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="pp-date" style="display: block; margin-bottom: 0.3rem;">Preferred Date</label>
+      <input type="date" id="pp-date" name="date"
+             style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;">
+    </div>
 
-      <div>
-        <label for="pp-group" class="block mb-1">Group Size</label>
-        <input type="number" id="pp-group" name="group-size"
-               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-      </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="pp-group" style="display: block; margin-bottom: 0.3rem;">Group Size</label>
+      <input type="number" id="pp-group" name="group-size"
+             style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;">
+    </div>
 
-      <div>
-        <label for="pp-message" class="block mb-1">Message</label>
-        <textarea id="pp-message" name="message" rows="5" required
-                  class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700"></textarea>
-      </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="pp-message" style="display: block; margin-bottom: 0.3rem;">Message</label>
+      <textarea id="pp-message" name="message" rows="5" required
+                style="width: 100%; padding: 0.75rem; border-radius: 6px; background: #1f2937; color: white; border: 1px solid #374151;"></textarea>
+    </div>
 
-      <button type="submit"
-              class="w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
-        Submit Inquiry
-      </button>
-    </form>
-  </section>
+    <button type="submit"
+            style="
+              width: 100%;
+              padding: 0.9rem;
+              background: #374151;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 1.1rem;
+              cursor: pointer;
+              transition: background 0.2s ease;
+            "
+            onmouseover="this.style.background='#4b5563'"
+            onmouseout="this.style.background='#374151'">
+      Submit Inquiry
+    </button>
+  </form>
+</section>
+
 
 </body>
 </html>
