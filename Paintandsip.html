@@ -51,27 +51,12 @@
       color: #9ca3af;
     }
 
-    /* Page Layout */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f5f5;
     }
 
-    .content {
-      margin-top: 120px; /* Prevents nav overlap */
-      max-width: 900px;
-      padding: 20px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -97,109 +82,106 @@
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
-      <span class="logo">Paint amd Sip</span>
+      <span class="logo">Paint and Sip</span>
       <ul class="nav-links">
         <li><a href="https://ivonjohnsonart.github.io/">Back to Ivon Johnson Art</a></li>
       </ul>
     </div>
   </nav>
 
-       <!-- Intro Section-->
-<section id="intro" style="max-width: 800px; margin: 0 auto; padding: 5rem 1rem; text-align: center;">
+  <!-- Intro Section -->
+  <section id="intro" style="max-width: 800px; margin: 0 auto; padding: 6rem 1rem 4rem; text-align: center;">
     <h2 style="font-size: 2rem; margin-bottom: 1rem;">Paint. Sip. Create Something Uniquely Yours.</h2>
-    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
-       Beyond creating fine art, Ivon loves bringing people together to connect, relax, and create.
-     Paint & Sip events let Ivon open his studio door a little wider—inviting everyone to share in his love of art and connect through the simple joy of painting.
-  
-    </p>
+
     <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-      Each event brings people together in a relaxed, welcoming setting, and all the materials are provided. Ivon leads the painting from start to finish—sharing techniques, color theory, and helping you bring your own ideas to life.
-      By the end of the evening, you’ll head home with your own personal masterpiece and a memorable creative experience.
+      Beyond creating fine art, Ivon loves bringing people together to connect, relax, and create.
+      Paint & Sip events let him open his studio door a little wider—inviting everyone to share in his love of art and connect through the simple joy of painting.
+    </p>
+
+    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+      Each event brings people together in a relaxed, welcoming setting, and all materials are provided.
+      Ivon leads the painting from start to finish—sharing techniques, color theory, and helping you bring your own ideas to life.
+      By the end of the evening, you’ll head home with a personal masterpiece and a memorable creative experience.
     </p>
 
     <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">
-        Your first drink is included, with both alcoholic and non-alcoholic options available.
-        Come unwind, try something new, and enjoy an evening filled with creativity, laughter,
-        and good company.
+      Your first drink is included, with both alcoholic and non-alcoholic options available.
+      Come unwind, try something new, and enjoy an evening filled with creativity, laughter, and good company.
     </p>
 
     <p style="font-size: 1.1rem; font-style: italic;">
-        Upcoming dates and locations are coming soon—stay tuned!
+      Upcoming dates and locations are coming soon—stay tuned!
     </p>
-</section>
-</p>
+  </section>
 
-    <!-- Gallery -->
-  <h2 style="text-align: center; margin-top: 5rem;">Paint, Sip,  Repeat — Gallery </h2>
+  <!-- Gallery -->
+  <section id="gallery" style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem 4rem;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">
+      Paint, Sip, Repeat — Gallery
+    </h2>
 
     <div class="gallery">
       <img src="https://ivonjohnsonart.github.io/art/Trout.jpg" alt="Trout Painting">
-      <img src="https://ivonjohnsonart.github.io/art/Owl.jpg" alt="Owl">
-      <img src="https://ivonjohnsonart.github.io/art/River.jpg" alt="River">
-      <img src="https://ivonjohnsonart.github.io/art/Lures.jpg" alt="Lures">
+      <img src="https://ivonjohnsonart.github.io/art/Owl.jpg" alt="Owl Painting">
+      <img src="https://ivonjohnsonart.github.io/art/River.jpg" alt="River Painting">
+      <img src="https://ivonjohnsonart.github.io/art/Lures.jpg" alt="Lures Painting">
     </div>
-  </div>
+  </section>
 
- 
-<!-- Private Parties Section -->
-<section id="private-parties" class="py-16 px-4 max-w-4xl mx-auto text-center">
-  <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Private Parties</h2>
+  <!-- Private Parties Section -->
+  <section id="private-parties" class="py-16 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-5xl md:text-6xl font-semibold mb-8 text-center">Private Parties</h2>
 
-  <p class="mb-4 text-xl">
-    Interested in hosting a private Paint & Sip event? Whether it's a birthday, team-building activity,
-    or a special celebration, use the form below to request details and availability.
-  </p>
+    <p class="mb-4 text-xl">
+      Interested in hosting a private Paint & Sip event? Whether it's a birthday, team-building activity,
+      or a special celebration, use the form below to request details and availability.
+    </p>
 
-  <form action="https://formspree.io/f/mgonyzav" method="POST"
-        class="space-y-4 max-w-md mx-auto text-left">
+    <form action="https://formspree.io/f/mgonyzav" method="POST"
+          class="space-y-4 max-w-md mx-auto text-left">
 
-    <div>
-      <label for="pp-name" class="block mb-1">Name</label>
-      <input type="text" id="pp-name" name="name" required
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
+      <div>
+        <label for="pp-name" class="block mb-1">Name</label>
+        <input type="text" id="pp-name" name="name" required
+               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
+      </div>
 
-    <div>
-      <label for="pp-email" class="block mb-1">Email</label>
-      <input type="email" id="pp-email" name="_replyto" required
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
+      <div>
+        <label for="pp-email" class="block mb-1">Email</label>
+        <input type="email" id="pp-email" name="_replyto" required
+               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
+      </div>
 
-    <div>
-      <label for="pp-phone" class="block mb-1">Phone Number</label>
-      <input type="text" id="pp-phone" name="phone"
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
+      <div>
+        <label for="pp-phone" class="block mb-1">Phone Number</label>
+        <input type="text" id="pp-phone" name="phone"
+               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
+      </div>
 
-    <div>
-      <label for="pp-date" class="block mb-1">Preferred Date</label>
-      <input type="date" id="pp-date" name="date"
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
+      <div>
+        <label for="pp-date" class="block mb-1">Preferred Date</label>
+        <input type="date" id="pp-date" name="date"
+               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
+      </div>
 
-    <div>
-      <label for="pp-group" class="block mb-1">Group Size</label>
-      <input type="number" id="pp-group" name="group-size"
-             class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
-    </div>
+      <div>
+        <label for="pp-group" class="block mb-1">Group Size</label>
+        <input type="number" id="pp-group" name="group-size"
+               class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700">
+      </div>
 
-    <div>
-      <label for="pp-message" class="block mb-1">Message</label>
-      <textarea id="pp-message" name="message" rows="5" required
-                class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700"></textarea>
-    </div>
+      <div>
+        <label for="pp-message" class="block mb-1">Message</label>
+        <textarea id="pp-message" name="message" rows="5" required
+                  class="w-full px-3 py-2 rounded bg-gray-800 text-white border border-gray-700"></textarea>
+      </div>
 
-    <button type="submit"
-            class="w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
-      Submit Inquiry
-    </button>
-  </form>
-</section>
+      <button type="submit"
+              class="w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 rounded transition">
+        Submit Inquiry
+      </button>
+    </form>
+  </section>
 
-</section>
-
-  
 </body>
 </html>
-
-
