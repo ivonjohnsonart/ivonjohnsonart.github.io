@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paint & Sip – Ivon Johnson Art</title>
   <script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .masonry {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .masonry {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .masonry {
+      column-count: 3;
+    }
+  }
+
+  .masonry img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    display: block;
+  }
+</style>
+
 </head>
 
 <body class="bg-gray-100 text-gray-900">
@@ -34,18 +60,23 @@
 </p>
 
     </section>
+<!-- Gallery -->
+  <section id="gallery" class="mb-20">
+  <h2 class="text-3xl font-semibold text-center mb-8">Paint, Sip, Repeat — Gallery</h2>
 
-    <!-- Gallery -->
-    <section id="gallery" class="mb-20">
-      <h2 class="text-3xl font-semibold text-center mb-8">Past Paint& Sip Events</h2>
+  <p class="text-xl italic text-center mt-6 mb-10 leading-relaxed">
+    Upcoming Paint & Sip events are on the horizon — with summer adventures planned in the stunning Red Lodge, Montana region.
+  </p>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <img src="https://ivonjohnsonart.github.io/art/Trout.jpg" class="rounded shadow-md hover:scale-105 transition" alt="Trout Painting">
-        <img src="https://ivonjohnsonart.github.io/art/Owl.jpg" class="rounded shadow-md hover:scale-105 transition" alt="Owl Painting">
-        <img src="https://ivonjohnsonart.github.io/art/River.jpg" class="rounded shadow-md hover:scale-105 transition" alt="River Painting">
-        <img src="https://ivonjohnsonart.github.io/art/Lures.jpg" class="rounded shadow-md hover:scale-105 transition" alt="Lures Painting">
-      </div>
-    </section>
+  <div class="masonry">
+    <img src="https://ivonjohnsonart.github.io/art/Trout.jpg" alt="Trout Painting">
+    <img src="https://ivonjohnsonart.github.io/art/Owl.jpg" alt="Owl Painting">
+    <img src="https://ivonjohnsonart.github.io/art/River.jpg" alt="River Painting">
+    <img src="https://ivonjohnsonart.github.io/art/Lures.jpg" alt="Lures Painting">
+    <!-- Add as many images as you want -->
+  </div>
+</section>
+
 
     <!-- Private Parties -->
     <section id="private-parties" class="text-center">
