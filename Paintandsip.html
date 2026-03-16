@@ -29,8 +29,47 @@
     border-radius: 0.5rem;
     display: block;
   }
-</style>
 
+/* Background: Montana sky gradient + canvas texture */
+body {
+  background:
+    linear-gradient(to bottom, #d7e8f2 0%, #f7f2e7 100%),
+    url('https://www.transparenttextures.com/patterns/canvas.png');
+  background-size: cover, auto;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed;
+  color: #333;
+}
+
+/* Palette‑knife brushstroke corners */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 42vw;
+  height: 42vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.22; /* slightly stronger to show texture */
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Top-left: cool palette‑knife stroke (sky blues, deep teals, slate) */
+body::before {
+  top: 0;
+  left: 0;
+  background-image: url('https://ivonjohnsonart.github.io/art/brushstroke-cool-paletteknife.png');
+}
+
+/* Bottom-right: warm palette‑knife stroke (rust, ochre, sunset gold) */
+body::after {
+  bottom: 0;
+  right: 0;
+  background-image: url('https://ivonjohnsonart.github.io/art/brushstroke-warm-paletteknife.png');
+}
+
+ </style> 
 </head>
 
 <body class="bg-gray-100 text-gray-900">
